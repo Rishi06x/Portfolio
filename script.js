@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
     });
 
-    menuClose.addEventListener('click', function() {
+    menuClose.addEventListener('click', function closeMobileMenu() {
         mobileNav.classList.remove('active');
         menuToggle.classList.remove('active');
         menuToggle.style.display = 'flex';
