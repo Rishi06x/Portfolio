@@ -431,8 +431,8 @@ body {
   display: flex;
   flex-direction: column;
   text-align: center;
-  padding-top: 100px;
-  animation: fadeInUp linear;
+  padding-top: 120px;
+  animation: slideLeft linear;
   animation-timeline: view();
   animation-range: entry 0% entry 100%;
 }
@@ -448,25 +448,90 @@ body {
   justify-content: space-evenly;
   flex-wrap: wrap;
   padding: 2rem;
-  margin-top: 3rem;
+  margin-top: var(--spacing-unit);
   gap: 1rem;
 }
 
-.about-me,.education{
-  width: 500px;
-  height: 300px;
-  background-color: var(--text-muted);  
+.about-me,.skills{
+  width: 600px;
+  height: 450px;
+  background-color: var(--bg-secondary);  
+}
+
+.about-me h4{
+  text-align: center;
+  font-size: 24px;
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-unit);
+}
+
+.about-me{
+  padding: var( --spacing-unit);
+  text-align: justify;
+  align-items: center;
+}
+
+.skills{
+  padding: var(--spacing-unit);
+}
+
+.skills .edu-links{
+  text-align: left;
+  display: flex;
+  gap: var(--spacing-unit);
+}
+
+.skills .edu-links a{
+  text-decoration: none;
+  color:var(--text-color);
+  font-weight: 700;
+  font-size: 18px;
+  border: 2px solid var(--tertiary-color);
+  padding: 6px;
+  border-radius: 24px;
+}
+
+.skills .edu-links a.active-link{
+  color: var(--primary-color);
+}
+.skills .edu-links a:hover,
+.skills .edu-links a:focus{
+  color: var(--primary-hover);
+  background-color: var(--bg-color);
+  cursor: pointer;
+}
+
+.skills .section{
+  display: none;
+}
+.skills .section.active{
+  display: block;
+  animation: fadeInRight 0.5s ease-in-out;
+}
+.skills .education{
+  text-align: justify;
+  margin-top: var(--spacing-unit);
+}
+.skills .tech-skills{
+  margin-top: var(--spacing-unit);
+}
+.skills .tech-skills img{
+  display: flex;
+  float: left;
+  width: 50px;
+  height: 50px;
+  margin: var(--spacing-unit);
 }
 
 /* Animations */
 
-@keyframes slideIn {
+@keyframes slideLeft {
   from {
-    transform: translateY(-100%);
+    transform: translateX(-100%);
     opacity: 0;
   }
   to {
-    transform: translateY(0%);
+    transform: translateX(0%);
     opacity: 1;
   }
 }
@@ -595,6 +660,12 @@ body {
 
   .social-links {
     justify-content: center;
+  }
+
+  .about-me,.skills{
+    width: 100%;
+    height: auto;
+    padding: 1rem;
   }
 }
 

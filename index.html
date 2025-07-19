@@ -128,7 +128,11 @@
 
           <div class="hero-image">
             <div class="profile-wrapper">
-              <img src="/assets/profile.jpg" alt="profile pic" class="profile-image"/>
+              <img
+                src="/assets/profile.jpg"
+                alt="profile pic"
+                class="profile-image"
+              />
             </div>
           </div>
         </section>
@@ -140,13 +144,58 @@
     <section class="about" id="about">
       <h1>About</h1>
       <div class="about-contents">
-
         <div class="about-me">
-
+          <h4>About me</h4>
+          <p>
+            I'm a 3rd-year Computer Science Engineering student with a strong
+            passion for building impactful web applications. My goal is to
+            become a skilled <strong> MERN Stack Developer </strong>, crafting
+            full-stack solutions that are both functional and user-friendly.
+            What sets me apart is my stubborn curiosity and determination and I
+            constantly push myself to learn and improve. Whether it's debugging
+            tricky code, learning new tools, or optimizing user experience, I
+            stay committed until the job is done. I've already built several
+            mini projects that reflect my growing expertise in HTML, CSS,
+            JavaScript, and I’m currently diving deep into
+            <strong> React, Node.js, Express, and MongoDB </strong>to strengthen
+            my full-stack skills. <br /> <br>
+            Apart from coding, I enjoy exploring UI/UX design, and continuously
+            updating myself with the latest trends in tech. My vision is to
+            contribute to real-world projects that solve meaningful problems.
+          </p>
         </div>
 
-        <div class="education">
+        <div class="skills" id="skills">
+          <div class="edu-links">
+            <a onclick="showSection('education', this)" class="active-link"
+              >Education</a
+            >
+            <a onclick="showSection('tech-skills', this)">Technical Skills</a>
+          </div>
+          <div class="education section active" id="education">
+            <p>
+              <strong>Higher Secondary (12th)</strong>
+              <br />
+              <span>2022 - 2023</span>
+              <br />
+              <span>SLB govt. hr. sec. school, Nagercoil, TamilNadu </span>
+            </p> <br><br>
+            <p>
+              <strong>Bachelor of Engineering in Computer Science and Engineering</strong>
+              <br />
+              <span>2023 - 2027</span>
+              <br />
+              <span>Coimbatore Institute of Engineering and technology, Coimbatore, TamilNadu </span>
+            </p>
+          </div>
 
+          <div class="tech-skills section" id="tech-skills">
+            <img src="./assets/htmllogo.png" alt="Html5" />
+            <img src="./assets/csslogo.png" alt="Css" />
+            <img src="./assets/jslogo.png" alt="Js" />
+            <img src="./assets/reactlogo.png" alt="React" />
+            <img src="./assets/tailwindlogo.png" alt="Tailwind CSS" />
+          </div>
         </div>
       </div>
     </section>

@@ -25,15 +25,22 @@ document.addEventListener('DOMContentLoaded', function() {
         
     });
 
-    menuClose.addEventListener('click', function closeMobileMenu() {
+    function closeMobileMenu() {
         mobileNav.classList.remove('active');
         menuToggle.classList.remove('active');
-        menuToggle.style.display = 'flex';
-        menuClose.style.display = 'none';
-    });
-    
 
-    // Navigation links click handler
+        if (window.innerWidth <= 768) { 
+            menuToggle.style.display = 'flex';
+            menuClose.style.display = 'none';
+        } else {
+            menuToggle.style.display = '';
+            menuClose.style.display = '';
+        }
+    }
+
+    menuClose.addEventListener('click', closeMobileMenu);
+
+    // Close menu when clicking nav links
     navLinks.forEach(function(link) {
         link.addEventListener('click', function(e) {
             const section = e.target.dataset.section;
@@ -46,8 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         navLink.classList.add('active');
                     }
                 });
-                
-                // Close mobile menu
                 closeMobileMenu();
             }
         });
@@ -89,3 +94,14 @@ document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
         }
     });
 });
+
+function showSection(id, clickedLink){
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(sec => sec.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+
+    const links = document.querySelectorAll('.edu-links a');
+    links.forEach(link => link.classList.remove('active-link'));
+    clickedLink.classList.add('active-link')
+}
+
