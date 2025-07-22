@@ -105,3 +105,71 @@ function showSection(id, clickedLink){
     clickedLink.classList.add('active-link')
 }
 
+
+ const contactDetails = document.querySelectorAll('.contact-details');
+        
+        contactDetails.forEach(detail => {
+            const input = detail.querySelector('input, textarea');
+            const label = detail.querySelector('label');
+            
+            // Handle focus event
+            input.addEventListener('focus', function() {
+                label.classList.add('filled');
+            });
+            
+            // Handle blur event
+            input.addEventListener('blur', function() {
+                if (input.value.trim() === '') {
+                    label.classList.remove('filled');
+                }
+            });
+            
+            // Handle input event for real-time updates
+            input.addEventListener('input', function() {
+                if (input.value.trim() !== '') {
+                    label.classList.add('filled');
+                } else {
+                    label.classList.remove('filled');
+                }
+            });
+            
+            // Check if field has value on page load
+            if (input.value.trim() !== '') {
+                label.classList.add('filled');
+            }
+        });
+
+        const sendBtn = document.getElementById('send-btn');
+
+        sendBtn.addEventListener('click', function sendMessage() {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            if (!name || !email || !message) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            
+            const successMessage = document.getElementById('successMessage');
+            successMessage.style.display = 'block';
+            
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('message').value = '';
+            
+            document.querySelectorAll('.contact-details label').forEach(label => {
+                label.classList.remove('filled');
+            });
+            
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 3000);
+        });
