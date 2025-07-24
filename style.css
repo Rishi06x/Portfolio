@@ -635,7 +635,7 @@ body {
 .contact-container {
   width: clamp(350px, 80%, 800px);
   /* height: 600px; */
-  background-color: var(--secondary-color);
+  background-color: var(--bg-secondary);
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -667,7 +667,7 @@ textarea {
   border: 2px solid var(--text-muted);
   outline: none;
   caret-color: var(--primary-color);
-  background-color: var(--secondary-color);
+  background-color: var(--bg-secondary);
   box-shadow: var(--shadow);
   color: var(--text-color);
   border-radius: 8px;
