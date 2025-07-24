@@ -141,35 +141,56 @@ function showSection(id, clickedLink){
 
         const sendBtn = document.getElementById('send-btn');
 
-        sendBtn.addEventListener('click', function sendMessage() {
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const message = document.getElementById('message').value.trim();
-            
-            if (!name || !email || !message) {
-                alert('Please fill in all fields');
-                return;
+    async function sendMessage(e) {
+    e.preventDefault();  // Prevent normal form submit (page reload)
+
+    const form = e.target;  // The form element that triggered submit
+    const formData = new FormData(form);
+    const button = document.getElementById('send-btn');
+    const successMessage = document.getElementById('successMessage');
+        
+    // Simple validation (you can keep yours too)
+    const name = formData.get('name').trim();
+    const email = formData.get('email').trim();
+    const message = formData.get('message').trim();
+
+    if (!name || !email || !message) {
+        alert('Please fill in all fields');
+        return;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address');
+        return;
+    }
+
+    button.textContent = 'Sending...';
+    button.disabled = true;
+
+    try {
+        // Replace the URL below with your form handler endpoint (like Formspree)
+        const response = await fetch('https://formspree.io/f/mqalprye', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'  // Expect JSON response
             }
-            
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert('Please enter a valid email address');
-                return;
-            }
-            
-            const successMessage = document.getElementById('successMessage');
-            successMessage.style.display = 'block';
-            
-            document.getElementById('name').value = '';
-            document.getElementById('email').value = '';
-            document.getElementById('message').value = '';
-            
-            document.querySelectorAll('.contact-details label').forEach(label => {
-                label.classList.remove('filled');
-            });
-            
-            setTimeout(() => {
-                successMessage.style.display = 'none';
-            }, 3000);
         });
+
+        if (response.ok) {
+            successMessage.style.display = 'block';
+            form.reset();
+        } else {
+            alert('Failed to send message. Please try again later.');
+        }
+    } catch (error) {
+        alert('Error sending message: ' + error.message);
+    }
+
+    button.textContent = 'Send Message';
+    button.disabled = false;
+
+    setTimeout(() => {
+        successMessage.style.display = 'none';
+    }, 3000);
+}

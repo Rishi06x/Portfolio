@@ -282,24 +282,26 @@
 
     <section class="contact" id="contact">
       <h1>Contact Me</h1>
-      <div class="contact-container">
+      <form class="contact-container" onsubmit="sendMessage(event)">
         <div class="contact-name contact-details">
           <label>Your name</label>
-          <input type="text" id="name" required />
+          <input type="text" id="name" name="name" required />
         </div>
         <div class="contact-email contact-details">
           <label>Your Email</label>
-          <input type="email" id="email" required />
+          <input type="email" id="email" name="email" required />
         </div>
         <div class="contact-msg contact-details">
           <label>You message</label>
-          <textarea id="message"></textarea>
+          <textarea id="message" name="message"></textarea>
         </div>
-        <button type="submit" id="send-btn">Send Message</button>
+        <button type="submit" id="send-btn" >
+          Send Message
+        </button>
         <div class="success-message" id="successMessage">
           Thank you! Your message has been sent successfully.
         </div>
-      </div>
+      </form>
     </section>
 
     <footer>
@@ -307,5 +309,6 @@
     </footer>
 
     <script src="script.js"></script>
+
   </body>
 </html>
