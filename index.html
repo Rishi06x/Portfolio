@@ -109,18 +109,24 @@
             </div>
 
             <div class="social-links">
-              <a href="#" class="social-link" aria-label="LinkedIn Profile">
+              <a
+                href="https://www.linkedin.com/in/Rishi06x" class="social-link" aria-label="LinkedIn Profile">
                 <i class="fab fa-linkedin-in"></i>
               </a>
-              <a href="#" class="social-link" aria-label="GitHub Profile">
+              <a href="https://github.com/Rishi06x" class="social-link" aria-label="GitHub Profile">
                 <i class="fab fa-github"></i>
               </a>
-              <a href="#" class="social-link" aria-label="HackerRank Profile">
+              <a href="https://www.hackerrank.com/profile/rishiranjith1234" class="social-link" aria-label="HackerRank Profile">
                 <i class="fab fa-hackerrank"></i>
               </a>
             </div>
 
-            <a href="#" class="cta-button" id="cv-button">
+            <a
+              href="./assets/Resume.pdf"
+              download="Resume.pdf"
+              class="cta-button"
+              id="cv-button"
+            >
               <span>Download CV</span>
               <i class="material-icons">description</i>
             </a>
@@ -198,11 +204,26 @@
           </div>
 
           <div class="tech-skills section" id="tech-skills">
-            <img src="./assets/htmllogo.png" alt="Html5" />
-            <img src="./assets/csslogo.png" alt="Css" />
-            <img src="./assets/jslogo.png" alt="Js" />
-            <img src="./assets/reactlogo.png" alt="React" />
-            <img src="./assets/tailwindlogo.png" alt="Tailwind CSS" />
+            <span class="htmlImg">
+              <img src="./assets/htmllogo.png" alt="Html5" />
+              <p>HTML5</p>
+            </span>
+            <span>
+              <img src="./assets/csslogo.png" alt="Css" />
+              <p>CSS3</p>
+            </span>
+            <span>
+              <img src="./assets/jslogo.png" alt="Js" />
+              <p>JavaScript</p>
+            </span>
+            <span>
+              <img src="./assets/reactlogo.png" alt="React" />
+              <p>React</p>
+            </span>
+            <span>
+              <img src="./assets/tailwindlogo.png" alt="Tailwind CSS" />
+              <p>Tailwind CSS</p>
+            </span>
           </div>
         </div>
       </div>
@@ -295,9 +316,7 @@
           <label>You message</label>
           <textarea id="message" name="message"></textarea>
         </div>
-        <button type="submit" id="send-btn" >
-          Send Message
-        </button>
+        <button type="submit" id="send-btn">Send Message</button>
         <div class="success-message" id="successMessage">
           Thank you! Your message has been sent successfully.
         </div>
@@ -309,6 +328,5 @@
     </footer>
 
     <script src="script.js"></script>
-
   </body>
 </html>
