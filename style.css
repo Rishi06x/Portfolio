@@ -591,11 +591,6 @@ body {
   justify-content: space-around;
   gap: var(--spacing-unit);
 }
-/* 
-.project-item .project-links a{
-  margin-top: auto;
-  
-} */
 
 .project-item .project-links a {
   text-decoration: none;
@@ -644,7 +639,6 @@ body {
 
 .contact-container {
   width: clamp(350px, 80%, 800px);
-  /* height: 600px; */
   background-color: var(--bg-secondary);
   display: flex;
   flex-direction: column;
@@ -732,6 +726,12 @@ footer {
   background-color: var(--bg-secondary);
   padding: var(--spacing-unit);
   text-align: center;
+}
+
+footer p {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin: 0.5rem 0;
 }
 
 /* Animations */
