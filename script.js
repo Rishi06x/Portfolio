@@ -194,3 +194,43 @@ function showSection(id, clickedLink){
         successMessage.style.display = 'none';
     }, 3000);
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  let currentActiveSection = null; // Track current active section
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const sectionId = entry.target.id;
+        
+        // Only update if it's a different section
+        if (currentActiveSection !== sectionId) {
+          currentActiveSection = sectionId;
+          updateActiveNavigation(sectionId);
+        //   console.log(`Active section changed to: ${sectionId}`);
+        }
+      }
+    });
+  }, {
+    rootMargin: '-50% 0px -50% 0px',
+    threshold: 0
+  });
+
+  // Observe all sections
+  document.querySelectorAll('section').forEach(section => {
+    observer.observe(section);
+  });
+
+  function updateActiveNavigation(activeSection) {
+    // Remove active from ALL links first
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+      link.classList.remove('active');
+    });
+    
+    // Add active to current section link
+    const activeLink = document.querySelector(`[data-section="${activeSection}"]`);
+    if (activeLink) {
+      activeLink.classList.add('active');
+    }
+  }
+});
