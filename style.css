@@ -518,17 +518,16 @@ body {
 }
 .skills .tech-skills img {
   display: flex;
-  /* float: left; */
   width: 25px;
   height: 25px;
-  margin: var(--spacing-unit);
+  margin: 0.5rem;
 }
 
 .skills .tech-skills span {
-  display: inline-flex; /* Change from flex to inline-flex */
+  display: inline-flex; 
   border: 2px solid var(--tertiary-color);
   align-items: center;
-  padding: 0 0.5rem;
+  padding: 0 0.8rem;
   margin: 0.5rem;
   border-radius: var(--spacing-unit);
 }
