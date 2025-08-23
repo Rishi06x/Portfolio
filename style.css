@@ -185,12 +185,13 @@ body {
 .hero {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   min-height: 100vh;
   padding: 0 2rem;
   gap: 4rem;
-  max-width: 1200px;
+  max-width: 100vw;
   margin: 0 auto;
+  position: relative;
 }
 
 .hero-content {
@@ -386,6 +387,25 @@ body {
   z-index: 2;
   box-shadow: var(--shadow);
 }
+
+.marquee-container {
+  display: inline-block;
+  justify-content: center;
+  position: absolute;   
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  background: #111;   
+  color: #fff;
+  padding: 8px 0;
+  font-weight: 500;
+  z-index: 9999;      
+}
+
+.marquee-container span {
+  margin: 20px;
+}
+
 
 /* Mobile Navigation */
 .mobile-nav {
@@ -841,7 +861,6 @@ footer p {
     text-align: center;
     padding: 2rem 1rem;
     gap: 4rem;
-    min-height: calc(100% - 10%);
     margin-top: 2em;
   }
 
