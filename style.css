@@ -859,40 +859,47 @@ footer p {
   .hero {
     flex-direction: column;
     text-align: center;
-    padding: 2rem 1rem;
+    padding: 4rem 0;
     gap: 4rem;
     margin-top: 2em;
   }
-
+  
   .hero-image {
     flex: 0 0 250px;
     order: -1;
   }
-
+  
   .profile-wrapper {
     width: 250px;
     height: 250px;
   }
-
+  
   .hero-content {
     max-width: 100%;
   }
-
+  
   .hero-subtitle {
     flex-direction: column;
     justify-content: center;
     gap: 1rem;
   }
-
+  
   .hero-subtitle h3 {
     min-width: 60px;
+    margin: 0 auto;
   }
-
+  
   .hero-subtitle .dynamic-text {
     min-width: 100%;
     display: flex;
   }
 
+  .dynamic-word {
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  text-align: center;
+}
+  
   .header {
     padding: 1rem;
   }
