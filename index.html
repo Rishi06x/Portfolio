@@ -3,374 +3,149 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Rishi's Professional Portfolio - Frontend Developer & UI/UX Designer"
-    />
-    <meta
-      name="keywords"
-      content="frontend developer, UI UX designer, portfolio, web development"
-    />
-    <meta name="author" content="Rishi" />
-    <title>Rishi's Portfolio</title>
-
-    <!-- fonts -->
-    <link
-      rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      as="style"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-    />
-
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-
-    <!-- Material Icons -->
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
+    <title>Rishi | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   </head>
   <body>
-    <div class="container">
-      <header class="header" id="header">
-        <a href="#home" class="logo">Rishi.</a>
+    <header class="header" id="header">
+      <a href="#home" class="logo">RISHI<span>.</span></a>
 
-        <!-- Navbar -->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
 
-        <nav>
-          <ul class="nav-menu" id="nav-menu">
-            <li class="nav-item">
-              <a href="#home" class="nav-link active" data-section="home"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="#about" class="nav-link" data-section="about">About</a>
-            </li>
-            <li class="nav-item">
-              <a href="#projects" class="nav-link" data-section="projects"
-                >Projects</a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="#contact" class="nav-link" data-section="contact"
-                >Contact</a
-              >
-            </li>
-          </ul>
-        </nav>
-
-        <div class="menu-toggle" id="menu-toggle">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="menu-close" id="menu-close">
-          <span></span>
-          <span></span>
-        </div>
-      </header>
-
-      <nav class="mobile-nav" id="mobile-nav">
-        <a href="#home" class="mobile-nav-link" data-section="home">Home</a>
-        <a href="#about" class="mobile-nav-link" data-section="about">About</a>
-        <a href="#projects" class="mobile-nav-link" data-section="projects"
-          >Projects</a
-        >
-        <a href="#contact" class="mobile-nav-link" data-section="contact"
-          >Contact</a
-        >
+      <nav>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#contact" class="nav-link contact-btn">Let's Talk</a></li>
+        </ul>
       </nav>
+    </header>
 
-      <!-- Hero Section -->
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-content reveal">
+          <div class="badge">AVAILABLE FOR INTERN</div>
+          <h1 class="hero-title">Building the <br /><span class="red-text">User Experience.</span></h1>
+          <p class="hero-desc">3rd-year CSE student focused on mastering the art of MERN Stack development. Focused on performance, aesthetics, and modern frontend architecture.</p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-red shimmer">View Work</a>
+            <a href="./assets/Rishi resume.pdf" class="btn btn-outline" download>Download CV</a>
+          </div>
+        </div>
 
-      <main>
-        <section class="hero" id="home">
-          <div class="hero-content">
-            <h1 class="hero-title">Hi! I'm <span>Rishi</span></h1>
+        <div class="hero-image-box reveal">
+          <div class="profile-card-container">
+            <div class="profile-glow"></div>
+            <div class="main-profile-wrapper">
+              <img src="/assets/profile3.png" alt="Rishi" />
+            </div>
+          </div>
+        </div>
+      </section>
 
-            <div class="hero-subtitle">
-              <h3>I'm a</h3>
-              <div class="dynamic-text">
-                <span class="dynamic-word">Frontend Developer</span>
-                <span class="dynamic-word">UI/UX Designer</span>
+      <section class="section" id="about">
+        <h2 class="section-title reveal">01. About Me</h2>
+        <div class="bento-grid">
+          <div class="bento-item item-large reveal">
+            <span class="card-label">BIO</span>
+            <h3>Engineering & Design</h3>
+            <p>Currently pursuing B.E. in Computer Science at CIET. I thrive at the intersection of logic and creative design, specializing in building modern interfaces with React.</p>
+          </div>
+          <div class="bento-item reveal">
+            <span class="card-label">TECH</span>
+            <div class="stack-icons">
+              <i class="fab fa-react" title="React"></i>
+              <i class="fab fa-node-js" title="Node.js"></i>
+              <i class="fab fa-js" title="JavaScript"></i>
+              <i class="fab fa-python" title="Python"></i>
+              <i class="fa-solid fa-database" title="MongoDB"></i>
+            </div>
+          </div>
+          <div class="bento-item item-wide reveal">
+            <span class="card-label">EDUCATION</span>
+            <p><strong>B.E. Computer Science</strong><br />CIET, Coimbatore (2023 - 2027)</p>
+          </div>
+          <div class="bento-item reveal">
+            <span class="card-label">STATUS</span>
+            <p class="status"><span class="dot pulse"></span> Currently mastering MERN</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="projects">
+        <h2 class="section-title reveal">02. Selected Work</h2>
+        <div class="projects-grid">
+          <div class="project-card reveal">
+            <div class="p-img"><img src="./assets/coffee.png" alt="Brew Haven" /></div>
+            <div class="p-content">
+              <h3>Brew Haven</h3>
+              <p>Static Coffee Shop UI with focus on aesthetic typography.</p>
+              <div class="p-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
               </div>
             </div>
-
-            <div class="social-links">
-              <a
-                href="https://www.linkedin.com/in/Rishi06x"
-                class="social-link"
-                aria-label="LinkedIn Profile"
-              >
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-              <a
-                href="https://github.com/Rishi06x"
-                class="social-link"
-                aria-label="GitHub Profile"
-              >
-                <i class="fab fa-github"></i>
-              </a>
-              <a
-                href="https://www.hackerrank.com/profile/rishiranjith1234"
-                class="social-link"
-                aria-label="HackerRank Profile"
-              >
-                <i class="fab fa-hackerrank"></i>
-              </a>
-            </div>
-
-            <a
-              href="./assets/Resume.pdf"
-              download="Resume.pdf"
-              class="cta-button"
-              id="cv-button"
-            >
-              <span>Download CV</span>
-              <i class="material-icons">description</i>
-            </a>
           </div>
-
-          <div class="hero-image">
-            <div class="profile-wrapper">
-              <img
-                src="/assets/profile(1).jpg"
-                alt="profile pic"
-                class="profile-image"
-              />
+          <div class="project-card reveal">
+            <div class="p-img"><img src="./assets/weather1.png" alt="SkyCast" /></div>
+            <div class="p-content">
+              <h3>SkyCast</h3>
+              <p>Real-time weather application using OpenWeather API.</p>
+              <div class="p-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+              </div>
             </div>
           </div>
-
-          <div class="marquee-container">
-            <marquee behavior="scroll" direction="left">
-              <span>💻 Frontend Developer</span>
-              <span>🎨 UI/UX Designer</span>
-              <span>🧩 Problem Solver</span>
-              <span>💡 Creative Thinker</span>
-              <span>🤝 Team Player</span>
-              <span>📚 Stubborn Learner</span>
-            </marquee>
-          </div>
-        </section>
-      </main>
-    </div>
-
-    <!-- About Section -->
-
-    <section class="about" id="about">
-      <h1>About</h1>
-      <div class="about-contents">
-        <div class="about-me">
-          <h4>About me</h4>
-          <p>
-            I'm a 3rd-year Computer Science Engineering student with a strong
-            passion for building impactful web applications. My goal is to
-            become a skilled <strong> MERN Stack Developer </strong>, crafting
-            full-stack solutions that are both functional and user-friendly.
-            What sets me apart is my stubborn curiosity and determination and I
-            constantly push myself to learn and improve. Whether it's debugging
-            tricky code, learning new tools, or optimizing user experience, I
-            stay committed until the job is done. I've already built several
-            mini projects that reflect my growing expertise in HTML, CSS,
-            JavaScript, and I’m currently diving deep into
-            <strong> React, Node.js, Express, and MongoDB </strong>to strengthen
-            my full-stack skills. <br />
-            <br />
-            Apart from coding, I enjoy exploring UI/UX design, and continuously
-            updating myself with the latest trends in tech. My vision is to
-            contribute to real-world projects that solve meaningful problems.
-          </p>
         </div>
 
-        <div class="skills" id="skills">
-          <div class="edu-links">
-            <a onclick="showSection('education', this)" class="active-link"
-              >Education</a
-            >
-            <a onclick="showSection('tech-skills', this)">Technical Skills</a>
-          </div>
-          <div class="education section active" id="education">
-            <p>
-              <strong>Higher Secondary (12th)</strong>
-              <br />
-              <span>2022 - 2023</span>
-              <br />
-              <span>SLB govt. hr. sec. school, Nagercoil, TamilNadu </span>
-            </p>
-            <br /><br />
-            <p>
-              <strong
-                >Bachelor of Engineering in Computer Science and
-                Engineering</strong
-              >
-              <br />
-              <span>2023 - 2027</span>
-              <br />
-              <span
-                >Coimbatore Institute of Engineering and technology, Coimbatore,
-                TamilNadu
-              </span>
-            </p>
-          </div>
+        <div class="view-more-container reveal">
+          <a href="project.html" class="btn btn-outline view-more-btn">
+            <span>Explore All Projects</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </section>
 
-          <div class="tech-skills section" id="tech-skills">
-            <span>
-              <img src="./assets/htmllogo.png" alt="Html5" />
-              <p>HTML5</p>
-            </span>
-            <span>
-              <img src="./assets/csslogo.png" alt="Css" />
-              <p>CSS3</p>
-            </span>
-            <span>
-              <img src="./assets/jslogo.png" alt="Js" />
-              <p>JavaScript</p>
-            </span>
-            <span>
-              <img src="./assets/reactlogo.png" alt="React" />
-              <p>React</p>
-            </span>
-            <span>
-              <img src="./assets/tailwindlogo.png" alt="Tailwind CSS" />
-              <p>Tailwind CSS</p>
-            </span>
-            <span>
-              <img src="./assets/Clang.svg" alt="C language" />
-              <p>C Language</p>
-            </span>
-            <span>
-              <img src="./assets/git.svg" alt="Git" />
-              <p>Git</p>
-            </span>
-            <span>
-              <img src="./assets/github.png" alt="GitHub" />
-              <p>GitHub</p>
-            </span>
-          </div>
+      <section class="section" id="contact">
+        <h2 class="section-title reveal">03. Contact</h2>
+        <div class="contact-box reveal">
+          <form id="contact-form" class="contact-form">
+            <div class="input-row">
+              <div class="input-group">
+                <input type="text" name="from_name" id="name" required placeholder=" " />
+                <label for="name">Your Name</label>
+              </div>
+              <div class="input-group">
+                <input type="email" name="reply_to" id="email" required placeholder=" " />
+                <label for="email">Email Address</label>
+              </div>
+            </div>
+            <div class="input-group">
+              <textarea name="message" id="message" required placeholder=" "></textarea>
+              <label for="message">Your Message</label>
+            </div>
+            <button type="submit" class="btn btn-red shimmer" id="submit-btn">
+              <span>Send Message</span>
+              <i class="fa-solid fa-paper-plane" style="margin-left: 10px"></i>
+            </button>
+            <p id="form-status"></p>
+          </form>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
-    <!-- Projects Section -->
-    <section class="projects" id="projects">
-      <h1>Projects</h1>
-      <div class="project-list">
-        <div class="project-item">
-          <img src="./assets/coffee.png" alt="Project 1" />
-          <h3>Brew Haven</h3>
-          <p>
-            A static website for a coffee shop to showcase its menu, story and
-            contact.
-          </p>
-          <div class="project-links">
-            <a href="https://github.com/Rishi06x/Mini-Projects" class="view-g"
-              >View on <i class="fab fa-github"></i
-            ></a>
-            <a
-              href="https://rishi06x.github.io/CoffeeShop-page/"
-              class="view-p"
-              >View Project</a
-            >
-          </div>
-        </div>
-
-        <div class="project-item">
-          <img src="./assets/weather1.png" alt="Project 2" />
-          <h3>Weather Forecasting</h3>
-          <p>
-            A web application to get the weather details of any city by using an
-            API.
-          </p>
-          <div class="project-links">
-            <a href="https://github.com/Rishi06x/Mini-Projects" class="view-g"
-              >View on <i class="fab fa-github"></i
-            ></a>
-            <a
-              href="https://mini-projects06.netlify.app/weather/"
-              class="view-p"
-              >View Project</a
-            >
-          </div>
-        </div>
-
-        <div class="project-item">
-          <img src="./assets/expenseTracker.png" alt="Project 3" />
-          <h3>Expense Tracker</h3>
-          <p>
-            An expense tracker application to keep track of our income and
-            expenses.
-          </p>
-          <div class="project-links">
-            <a href="https://github.com/Rishi06x/Mini-Projects" class="view-g"
-              >View on <i class="fab fa-github"></i
-            ></a>
-            <a
-              href="https://mini-projects06.netlify.app/expensetracker/"
-              class="view-p"
-              >View Project</a
-            >
-          </div>
-        </div>
-
-        <div class="project-item">
-          <img src="./assets/todo1.png" alt="Project 4" />
-          <h3>To-Do</h3>
-          <p>
-            A ToDo application that helps to store the goals to finish and keep
-            track of the progress.
-          </p>
-          <div class="project-links">
-            <a href="https://github.com/Rishi06x/Mini-Projects" class="view-g"
-              >View on <i class="fab fa-github"></i>
-            </a>
-            <a href="https://mini-projects06.netlify.app/To-Do/" class="view-p"
-              >View Project</a
-            >
-          </div>
-        </div>
-      </div>
-      <a href="project.html" class="view-more">View More &rarr;</a>
-    </section>
-
-    <!-- Contact section -->
-
-    <section class="contact" id="contact">
-      <h1>Contact Me</h1>
-      <form class="contact-container" onsubmit="sendMessage(event)">
-        <div class="contact-name contact-details">
-          <label>Your name</label>
-          <input type="text" id="name" name="name" required />
-        </div>
-        <div class="contact-email contact-details">
-          <label>Your Email</label>
-          <input type="email" id="email" name="email" required />
-        </div>
-        <div class="contact-msg contact-details">
-          <label>You message</label>
-          <textarea id="message" name="message"></textarea>
-        </div>
-        <button type="submit" id="send-btn">Send Message</button>
-        <div class="success-message" id="successMessage">
-          Thank you! Your message has been sent successfully.
-        </div>
-      </form>
-    </section>
-
-    <footer>
-      <p>&copy; 2025 Rishi. All rights reserved.</p>
-      <p>Let's connect and build something great!</p>
+    <footer class="footer">
+      <strong>Have a vision? Let’s build it.</strong>
+      <p>&copy; 2026 RISHI. Built to Inspire.</p>
     </footer>
 
     <script src="script.js"></script>

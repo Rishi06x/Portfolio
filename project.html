@@ -3,89 +3,105 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects | Rishi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
     <link rel="stylesheet" href="project.css" />
-    <title>My projects</title>
   </head>
   <body>
+    <nav class="project-nav">
+      <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</a>
+    </nav>
+
     <div class="container">
-      <h1>Projects</h1>
+      <header class="project-header">
+        <h1>All <span class="red-text">Projects</span></h1>
+        <p>A collection of my web experiments and applications.</p>
+      </header>
+
       <div class="project-list">
         <div class="project-item">
-          <img src="./assets/coffee.png" alt="Project 1" />
+          <div class="img-wrapper">
+            <img src="./assets/coffee.png" alt="Brew Haven" />
+          </div>
           <div class="list-items">
             <h3>Brew Haven</h3>
-            <p>
-              A static website for a coffee shop to showcase its menu, story and contact.
-            </p>
-            <p>Tech used: HTML, CSS</p>
+            <p>A static website for a coffee shop to showcase its menu, story and contact.</p>
+            <span class="tech-tag">HTML, CSS</span>
           </div>
-          <a href="https://rishi06x.github.io/CoffeeShop-page/">View Demo</a>
+          <a href="https://rishi06x.github.io/CoffeeShop-page/" class="demo-link">View Demo</a>
         </div>
+
         <div class="project-item">
-          <img src="./assets/expenseTracker.png" alt="Project 2" />
+          <div class="img-wrapper">
+            <img src="./assets/expenseTracker.png" alt="Expense Tracker" />
+          </div>
           <div class="list-items">
             <h3>Expense Tracker</h3>
-            <p>
-              A simple expense tracker application to keep track of our expenses and income and store using local storage.
-            </p>
-            <p>Tech used: HTML, CSS, JS</p>
+            <p>Keep track of expenses and income with local storage integration.</p>
+            <span class="tech-tag">HTML, CSS, JS</span>
           </div>
-          <a href="https://mini-projects06.netlify.app/expensetracker/">View Demo</a>
+          <a href="https://mini-projects06.netlify.app/expensetracker/" class="demo-link">View Demo</a>
         </div>
+
         <div class="project-item">
-          <img src="./assets/calc1.png" alt="Project 3" />
+          <div class="img-wrapper">
+            <img src="./assets/calc1.png" alt="Cal-c" />
+          </div>
           <div class="list-items">
             <h3>Cal-c</h3>
-            <p>
-              A simple calculator web application.
-            </p>
-            <p>Tech used: HTML, CSS, JS</p>
+            <p>A sleek, functional calculator web application.</p>
+            <span class="tech-tag">HTML, CSS, JS</span>
           </div>
-          <a href="https://mini-projects06.netlify.app/calculator/calc">View Demo</a>
+          <a href="https://mini-projects06.netlify.app/calculator/calc" class="demo-link">View Demo</a>
         </div>
+
         <div class="project-item">
-          <img src="./assets/weather1.png" alt="Project 4" />
+          <div class="img-wrapper">
+            <img src="./assets/weather1.png" alt="Weather" />
+          </div>
           <div class="list-items">
             <h3>Weather Forecasting</h3>
-            <p>
-              A web application to get the weather details of any city by using an API .
-            </p>
-            <p>Tech used: HTML, Tailwind CSS, JS</p>
+            <p>Real-time weather details of any city using the OpenWeather API.</p>
+            <span class="tech-tag">HTML, Tailwind, JS</span>
           </div>
-          <a href="https://mini-projects06.netlify.app/Weather/">View Demo</a>
+          <a href="https://mini-projects06.netlify.app/Weather/" class="demo-link">View Demo</a>
         </div>
+
         <div class="project-item">
-          <img src="./assets/todo1.png" alt="Project 5" />
+          <div class="img-wrapper">
+            <img src="./assets/todo1.png" alt="To-Do" />
+          </div>
           <div class="list-items">
             <h3>To-Do</h3>
-            <p>
-              A ToDo application that helps to store the goals to finish and keep track of the progress.
-            </p>
-            <p>Tech used: HTML, CSS, JS</p>
+            <p>Store goals and keep track of progress with a clean UI.</p>
+            <span class="tech-tag">HTML, CSS, JS</span>
           </div>
-          <a href="https://mini-projects06.netlify.app/To-Do/">View Demo</a>
+          <a href="https://mini-projects06.netlify.app/To-Do/" class="demo-link">View Demo</a>
         </div>
+
         <div class="project-item">
-          <img src="./assets/clock1.png" alt="Project 6" />
+          <div class="img-wrapper">
+            <img src="./assets/clock1.png" alt="Clock" />
+          </div>
           <div class="list-items">
             <h3>Clock & Stop watch</h3>
-            <p>
-              A clock with 24 and 12 hour format and a stop watch.
-            </p>
-            <p>Tech used: HTML, CSS, JS</p>
+            <p>A dual-format clock (12/24hr) with an integrated stopwatch.</p>
+            <span class="tech-tag">HTML, CSS, JS</span>
           </div>
-          <a href="https://mini-projects06.netlify.app/Clock-Stop%20watch/">View Demo</a>
+          <a href="https://mini-projects06.netlify.app/Clock-Stop%20watch/" class="demo-link">View Demo</a>
         </div>
+
         <div class="project-item">
-          <img src="./assets/RPS1.png" alt="Project 7" />
+          <div class="img-wrapper">
+            <img src="./assets/RPS1.png" alt="RPS" />
+          </div>
           <div class="list-items">
             <h3>Rock Paper Scissors</h3>
-            <p>
-              A Rock Paper Scissors game with score count to declare the winner.
-            </p>
-            <p>Tech used: HTML, CSS, JS</p>
+            <p>Classic game with score tracking logic.</p>
+            <span class="tech-tag">HTML, CSS, JS</span>
           </div>
-          <a href="https://mini-projects06.netlify.app/rockpaperscissors/">View Demo</a>
+          <a href="https://mini-projects06.netlify.app/rockpaperscissors/" class="demo-link">View Demo</a>
         </div>
       </div>
     </div>

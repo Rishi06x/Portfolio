@@ -1,236 +1,106 @@
-// Wait for page to load
-document.addEventListener('DOMContentLoaded', function() {
-    // Get elements
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section');
     const header = document.getElementById('header');
-    const menuToggle = document.getElementById('menu-toggle');
-    const menuClose = document.getElementById('menu-close');
-    const mobileNav = document.getElementById('mobile-nav');
-    const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
 
-    // Header scroll effect
-    window.addEventListener('scroll', function() {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'auto';
+    });
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    });
+
+    window.addEventListener('scroll', () => {
+        let current = "";
+        
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
+
+        sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                current = section.getAttribute("id");
+            }
+        });
+
+        navLinks.forEach((link) => {
+            link.classList.remove("active");
+            if (link.getAttribute("href").includes(current)) {
+                link.classList.add("active");
+            }
+        });
     });
 
-    // Mobile menu toggle
-    menuToggle.addEventListener('click', function() {
-        mobileNav.classList.toggle('active');
-        menuToggle.classList.toggle('active');
-        menuToggle.style.display = 'none';
-        menuClose.style.display = 'flex';
-        
-    });
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
 
-    function closeMobileMenu() {
-        mobileNav.classList.remove('active');
-        menuToggle.classList.remove('active');
+    revealElements.forEach(el => revealObserver.observe(el));
 
-        if (window.innerWidth <= 768) { 
-            menuToggle.style.display = 'flex';
-            menuClose.style.display = 'none';
-        } else {
-            menuToggle.style.display = '';
-            menuClose.style.display = '';
-        }
-    }
+    const contactForm = document.getElementById('contact-form');
+    const statusMsg = document.getElementById('form-status');
+    const submitBtn = document.getElementById('submit-btn');
 
-    menuClose.addEventListener('click', closeMobileMenu);
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
 
-    // Close menu when clicking nav links
-    navLinks.forEach(function(link) {
-        link.addEventListener('click', function(e) {
-            const section = e.target.dataset.section;
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span>Sending...</span>';
             
-            if (section) {
-                // Update active link
-                navLinks.forEach(function(navLink) {
-                    navLink.classList.remove('active');
-                    if (navLink.dataset.section === section) {
-                        navLink.classList.add('active');
+            statusMsg.style.color = "var(--text-white)";
+            statusMsg.innerText = "Connecting to server...";
+
+            const formData = new FormData(this);
+
+            try {
+                const response = await fetch('https://formspree.io/f/mqalprye', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
                     }
                 });
-                closeMobileMenu();
-            }
-        });
-    });
 
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!mobileNav.contains(e.target) && !menuToggle.contains(e.target)) {
-            closeMobileMenu();
-        }
-    });
-
-    // Close mobile menu on window resize (for larger screens)
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 768) {
-            closeMobileMenu();
-        }
-    });
-
-    // Set initial active link to 'home'
-    navLinks.forEach(function(link) {
-        link.classList.remove('active');
-        if (link.dataset.section === 'home') {
-            link.classList.add('active');
-        }
-    });
-});
-
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
-
-function showSection(id, clickedLink){
-    const sections = document.querySelectorAll('.section');
-    sections.forEach(sec => sec.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-
-    const links = document.querySelectorAll('.edu-links a');
-    links.forEach(link => link.classList.remove('active-link'));
-    clickedLink.classList.add('active-link')
-}
-
-
- const contactDetails = document.querySelectorAll('.contact-details');
-        
-        contactDetails.forEach(detail => {
-            const input = detail.querySelector('input, textarea');
-            const label = detail.querySelector('label');
-            
-            // Handle focus event
-            input.addEventListener('focus', function() {
-                label.classList.add('filled');
-            });
-            
-            // Handle blur event
-            input.addEventListener('blur', function() {
-                if (input.value.trim() === '') {
-                    label.classList.remove('filled');
-                }
-            });
-            
-            // Handle input event for real-time updates
-            input.addEventListener('input', function() {
-                if (input.value.trim() !== '') {
-                    label.classList.add('filled');
+                if (response.ok) {
+                    statusMsg.style.color = "#00ff00"; 
+                    statusMsg.innerText = "Success! Your message has been sent.";
+                    contactForm.reset();
                 } else {
-                    label.classList.remove('filled');
+                    const data = await response.json();
+                    statusMsg.style.color = "#ff4d4d";
+                    statusMsg.innerText = data.errors ? data.errors[0].message : "Oops! Something went wrong.";
                 }
-            });
-            
-            // Check if field has value on page load
-            if (input.value.trim() !== '') {
-                label.classList.add('filled');
+            } catch (error) {
+                statusMsg.style.color = "#ff4d4d";
+                statusMsg.innerText = "Network error. Please try again later.";
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+
+                setTimeout(() => {
+                    statusMsg.innerText = "";
+                }, 5000);
             }
         });
-
-        const sendBtn = document.getElementById('send-btn');
-
-    async function sendMessage(e) {
-    e.preventDefault();  // Prevent normal form submit (page reload)
-
-    const form = e.target;  // The form element that triggered submit
-    const formData = new FormData(form);
-    const button = document.getElementById('send-btn');
-    const successMessage = document.getElementById('successMessage');
-        
-    // Simple validation (you can keep yours too)
-    const name = formData.get('name').trim();
-    const email = formData.get('email').trim();
-    const message = formData.get('message').trim();
-
-    if (!name || !email || !message) {
-        alert('Please fill in all fields');
-        return;
     }
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        alert('Please enter a valid email address');
-        return;
-    }
-
-    button.textContent = 'Sending...';
-    button.disabled = true;
-
-    try {
-        // Replace the URL below with your form handler endpoint (like Formspree)
-        const response = await fetch('https://formspree.io/f/mqalprye', {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Accept': 'application/json'  // Expect JSON response
-            }
-        });
-
-        if (response.ok) {
-            successMessage.style.display = 'block';
-            form.reset();
-        } else {
-            alert('Failed to send message. Please try again later.');
-        }
-    } catch (error) {
-        alert('Error sending message: ' + error.message);
-    }
-
-    button.textContent = 'Send Message';
-    button.disabled = false;
-
-    setTimeout(() => {
-        successMessage.style.display = 'none';
-    }, 3000);
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-  let currentActiveSection = null; // Track current active section
-  
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const sectionId = entry.target.id;
-        
-        // Only update if it's a different section
-        if (currentActiveSection !== sectionId) {
-          currentActiveSection = sectionId;
-          updateActiveNavigation(sectionId);
-        //   console.log(`Active section changed to: ${sectionId}`);
-        }
-      }
-    });
-  }, {
-    rootMargin: '-50% 0px -50% 0px',
-    threshold: 0
-  });
-
-  // Observe all sections
-  document.querySelectorAll('section').forEach(section => {
-    observer.observe(section);
-  });
-
-  function updateActiveNavigation(activeSection) {
-    // Remove active from ALL links first
-    document.querySelectorAll('.nav-menu a').forEach(link => {
-      link.classList.remove('active');
-    });
-    
-    // Add active to current section link
-    const activeLink = document.querySelector(`[data-section="${activeSection}"]`);
-    if (activeLink) {
-      activeLink.classList.add('active');
-    }
-  }
 });
