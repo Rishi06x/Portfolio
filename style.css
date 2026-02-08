@@ -423,6 +423,42 @@ body {
         width: 100%; 
         justify-content: center;
     }
+
+    .section {
+        padding: 6rem 5% 3rem; /* Reducing side padding for more screen real estate */
+        text-align: center;    /* Centers the section title */
+    }
+
+    .section-title {
+        border-left: none;
+        border-bottom: 4px solid var(--netflix-red);
+        padding-left: 0;
+        display: inline-block; 
+        margin-bottom: 2.5rem;
+    }
+
+    .bento-grid {
+        display: flex;        
+        flex-direction: column;
+        align-items: center;  
+        width: 100%;
+        max-width: 500px;     
+        margin: 0 auto;       
+    }
+
+    .bento-item {
+        width: 100%;          
+        padding: 2rem;        
+        text-align: center;   
+    }
+
+    .stack-icons {
+        justify-content: center; 
+    }
+
+    .status {
+        justify-content: center; 
+    }
 }
 
 .hamburger.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
