@@ -162,6 +162,26 @@ body {
     margin-bottom: 2.5rem;
 }
 
+.hero-socials {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+  margin-top: 10px;
+}
+
+.hero-socials a {
+  font-size: 1.5rem;
+  color: #fff; 
+  transition: all 0.3s ease;
+  opacity: 0.8;
+}
+
+.hero-socials a:hover {
+  color: #ff4d4d; 
+  transform: translateY(-5px);
+  opacity: 1;
+}
+
 /* Profile Image Box */
 .hero-image-box { flex: 0.8; display: flex; justify-content: center; }
 .profile-card-container { position: relative; animation: float 6s ease-in-out infinite; }
@@ -200,6 +220,20 @@ body {
     object-fit: cover;
     border-radius: 16px;
     z-index: 2;
+}
+
+.profile-card-container {
+  perspective: 1000px;
+}
+
+.main-profile-wrapper {
+  transition: transform 0.1s ease-out; 
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.main-profile-wrapper img {
+  transform: translateZ(20px); 
 }
 
 /* Buttons */
@@ -417,6 +451,10 @@ body {
 
     .view-more-container {
         margin-top: 2.5rem;
+    }
+
+    .hero-socials {
+     justify-content: center;
     }
     
     .view-more-btn {
