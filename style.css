@@ -456,19 +456,19 @@ body {
     filter: grayscale(100%);
 }
 
-.achieve-card:hover {
+.achieve-card:hover, .achieve-card.expanded {
     flex: 4;
     border-color: var(--netflix-red);
     box-shadow: 0 10px 30px rgba(229, 9, 20, 0.15);
 }
 
-.achieve-card:hover .achieve-bg {
+.achieve-card:hover .achieve-bg, .achieve-card.expanded .achieve-bg {
     opacity: 0.5;
     filter: grayscale(0%);
     transform: scale(1.05);
 }
 
-.achieve-card:hover::before {
+.achieve-card:hover::before, .achieve-card.expanded::before {
     opacity: 1;
 }
 
@@ -496,7 +496,7 @@ body {
     flex-shrink: 0;
 }
 
-.achieve-card:hover .achieve-icon {
+.achieve-card:hover .achieve-icon, .achieve-card.expanded .achieve-icon {
     transform: scale(0.9);
     transform-origin: left bottom;
     box-shadow: 0 0 15px var(--netflix-red);
@@ -509,7 +509,7 @@ body {
     white-space: nowrap;
 }
 
-.achieve-card:hover .achieve-text {
+.achieve-card:hover .achieve-text, .achieve-card.expanded .achieve-text {
     opacity: 1;
     transform: translateY(0);
     transition-delay: 0.2s;
@@ -530,6 +530,10 @@ body {
     -webkit-box-orient: vertical;
     overflow: hidden;
     max-width: 400px;
+}
+
+.achieve-card.expanded .achieve-text p {
+    -webkit-line-clamp: unset;
 }
 
 .achieve-date {

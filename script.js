@@ -134,4 +134,21 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  const achieveCards = document.querySelectorAll(".achieve-card");
+  achieveCards.forEach((card) => {
+    card.addEventListener("click", () => {
+      // Toggle expanded class on the clicked card
+      const isExpanded = card.classList.contains("expanded");
+      
+      // Optional: Close other cards if you only want one open at a time
+      // achieveCards.forEach(c => c.classList.remove("expanded"));
+      
+      if (!isExpanded) {
+        card.classList.add("expanded");
+      } else {
+        card.classList.remove("expanded");
+      }
+    });
+  });
 });
