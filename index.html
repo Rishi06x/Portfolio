@@ -45,15 +45,22 @@
       <section class="hero" id="home">
         <div class="hero-content reveal">
           <div class="badge">AVAILABLE FOR INTERN</div>
-          <h1 class="hero-title">
-            Building the <br /><span class="red-text">User Experience.</span>
-          </h1>
-          <p class="hero-desc">
-            Final-year CSE student and MERN Stack developer passionate about
-            building modern, responsive, and high-performance web applications.
-            I enjoy exploring new technologies, experimenting with innovative
-            ideas, and creating clean, user-focused digital experiences.
-          </p>
+          <div id="hero-pixel-drift" style="width: 100%; height: 220px; cursor: crosshair; position: relative; z-index: 2; margin: 10px 0;"></div>
+          <div class="hero-desc-wrapper" id="spotlight-desc">
+            <p class="hero-desc dim-text">
+              Final-year CSE student and MERN Stack developer passionate about
+              building modern, responsive, and high-performance web applications.
+              I enjoy exploring new technologies, experimenting with innovative
+              ideas, and creating clean, user-focused digital experiences.
+            </p>
+            <!-- OVERLAY LAYER: Bright Text (Hidden from screen readers) -->
+            <p class="hero-desc bright-text" aria-hidden="true">
+                Final-year CSE student and MERN Stack developer passionate about
+                building modern, responsive, and high-performance web applications.
+                I enjoy exploring new technologies, experimenting with innovative
+                ideas, and creating clean, user-focused digital experiences.
+            </p>
+          </div>
           <div class="hero-socials">
             <a
               href="https://linkedin.com/in/Rishi06x"
@@ -95,13 +102,14 @@
         </div>
       </section>
 
-      <section class="section" id="about">
+<section class="section" id="about">
         <h2 class="section-title reveal">01. About Me</h2>
         <div class="bento-grid">
           <div class="bento-item item-large reveal">
             <span class="card-label">BIO</span>
             <h3>Engineering & Design</h3>
-            <p>
+            <!-- Added text-fill classes and scroll trigger data attributes -->
+            <p class="text-fill text-fill--multiline" data-tf-trigger="scroll" data-tf-threshold="0.5">
               Currently pursuing B.E. in Computer Science at CIET. I thrive at
               the intersection of logic and creative design, specializing in
               building modern interfaces with React.
@@ -119,14 +127,16 @@
           </div>
           <div class="bento-item item-wide reveal">
             <span class="card-label">EDUCATION</span>
-            <p>
+            <!-- Added text-fill classes and scroll trigger data attributes -->
+            <p class="text-fill text-fill--multiline" data-tf-trigger="scroll" data-tf-threshold="0.5">
               <strong>B.E. Computer Science</strong><br />CIET, Coimbatore (2023
               - 2027)
             </p>
           </div>
           <div class="bento-item reveal">
             <span class="card-label">STATUS</span>
-            <p class="status">
+            <!-- Appended text-fill classes to existing 'status' class -->
+            <p class="status text-fill text-fill--multiline" data-tf-trigger="scroll" data-tf-threshold="0.5">
               <span class="dot pulse"></span> Currently mastering MERN
             </p>
           </div>
